@@ -32,6 +32,7 @@ public class MovementMessage: BaseMessage {
 public class ItemActionMessage: BaseMessage {
 
     public Item item;
+    public bool ignoreItem = false;
 
     public ItemActionMessage(Item item) {
         this.item = item;

@@ -25,10 +25,15 @@ public class UIItemManager : MonoBehaviour {
         RectTransform newRect = newObj.GetComponent<RectTransform>();
         newRect.SetParent(scrollContent.GetComponent<RectTransform>());
 
-        // Switching the image
+        ItemActionMessage castMsg = msg as ItemActionMessage;
+
         Item item = (msg as ItemActionMessage).item;
-        SpriteRenderer rend = item.GetComponent<SpriteRenderer>();
-        newObj.GetComponent<Image>().sprite = rend.sprite;
+        if (castMsg.ignoreItem) {
+            newObj.GetComponent<Image>().sprite = item.sprite;
+        } else {
+            SpriteRenderer rend = item.GetComponent<SpriteRenderer>();
+            newObj.GetComponent<Image>().sprite = rend.sprite;
+        }
 
         // Setting item
         ItemSlot slot = newObj.GetComponent<ItemSlot>();

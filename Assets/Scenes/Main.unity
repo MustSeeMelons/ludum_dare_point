@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 102577018}
   m_Layer: 0
   m_Name: Object_Radio
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,6 +241,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   isInInventory: 0
+  hasTransformed: 0
+  transformPrefab: {fileID: 0}
+  sprite: {fileID: 0}
+--- !u!1001 &223411162
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4397012662327428, guid: 1f86eec3aa79f47489baf9f944fa8249, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397012662327428, guid: 1f86eec3aa79f47489baf9f944fa8249, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397012662327428, guid: 1f86eec3aa79f47489baf9f944fa8249, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397012662327428, guid: 1f86eec3aa79f47489baf9f944fa8249, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397012662327428, guid: 1f86eec3aa79f47489baf9f944fa8249, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397012662327428, guid: 1f86eec3aa79f47489baf9f944fa8249, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397012662327428, guid: 1f86eec3aa79f47489baf9f944fa8249, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397012662327428, guid: 1f86eec3aa79f47489baf9f944fa8249, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1f86eec3aa79f47489baf9f944fa8249, type: 2}
+  m_IsPrefabParent: 0
 --- !u!224 &263902698 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224384713076134720, guid: 921407d1ce6c56846bda071d23eeafb6,
@@ -542,7 +587,7 @@ GameObject:
   - component: {fileID: 750081113}
   m_Layer: 0
   m_Name: Object_Clock
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -617,6 +662,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   isInInventory: 0
+  hasTransformed: 0
+  transformPrefab: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!1001 &889572574
 Prefab:
   m_ObjectHideFlags: 0
@@ -867,9 +915,10 @@ GameObject:
   - component: {fileID: 1083930143}
   - component: {fileID: 1083930142}
   - component: {fileID: 1083930144}
+  - component: {fileID: 1083930145}
   m_Layer: 0
-  m_Name: Cactuss
-  m_TagString: Untagged
+  m_Name: Object_Cactuss
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -942,8 +991,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b398c4eeb4aea4b4b81b2c8800ffaa79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 2
+  itemType: 3
   isInInventory: 0
+  hasTransformed: 0
+  transformPrefab: {fileID: 1614240660648836, guid: c2e5185e252766d46b47ae7810819491,
+    type: 2}
+  sprite: {fileID: 21300000, guid: 7b881e45a8f573740b2819c65b7c7e05, type: 3}
+--- !u!70 &1083930145
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1083930141}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.19269896, y: -0.12043667}
+  m_Size: {x: 2.6876173, y: 4.566428}
+  m_Direction: 0
 --- !u!1 &1150170000
 GameObject:
   m_ObjectHideFlags: 0

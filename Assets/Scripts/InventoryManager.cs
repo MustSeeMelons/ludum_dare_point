@@ -30,6 +30,27 @@ public class InventoryManager : MonoBehaviour {
             case ItemType.ACTION:
                 // TODO trigger predefined action
                 break;
+            case ItemType.TRANSFORM:
+                if (item.hasTransformed) {
+                    return;
+                }
+                item.SetAsTransformed();
+                GameObject obj = Instantiate(item.transformPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+                Item newItem = obj.GetComponent<Item>();
+
+                // HACK Disable rendered of the newly created obj..
+                obj.GetComponent<SpriteRenderer>().enabled = false;
+
+                newItem.SetAsInInventory(true);
+
+                itemList.Add(newItem);
+
+                ItemActionMessage newMsg = new ItemActionMessage(newItem) {
+                    ignoreItem = false
+                };
+
+                EventManager.TriggerEvent(Events.ITEM_UI_ADD, newMsg);
+                break;
         }
     }
 }
