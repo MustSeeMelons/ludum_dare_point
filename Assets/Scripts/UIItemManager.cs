@@ -28,7 +28,10 @@ public class UIItemManager : MonoBehaviour {
         // Switching the image
         Item item = (msg as ItemActionMessage).item;
         SpriteRenderer rend = item.GetComponent<SpriteRenderer>();
-
         newObj.GetComponent<Image>().sprite = rend.sprite;
+
+        // Setting item
+        ItemSlot slot = newObj.GetComponent<ItemSlot>();
+
     }
 }

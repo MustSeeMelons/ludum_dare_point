@@ -4,8 +4,10 @@ using UnityEngine;
 using Utility;
 
 public enum ItemType {
-    PICK_UP,
-    ACTION
+    PICK_UP,  // Item goes to inventory
+    ACTION,   // Some action is called
+    TRANSFORM // New item to inventory
+
 }
 
 /// <summary>

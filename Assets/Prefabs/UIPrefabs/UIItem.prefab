@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114983256118052326}
   - component: {fileID: 114444245651219444}
   m_Layer: 5
-  m_Name: Iteam
+  m_Name: UIItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
