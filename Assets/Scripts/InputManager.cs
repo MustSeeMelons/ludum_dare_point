@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utility;
 
 public class InputManager : MonoBehaviour {
 
@@ -18,15 +19,16 @@ public class InputManager : MonoBehaviour {
 
     private void Update() {
         if (Input.GetMouseButtonDown(0)) {
-            // Raycast into world
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            Vector3 worldPoint = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit2d = Physics2D.Raycast(worldPoint, Vector2.up, .001f);
 
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit)) {
-                GameObject obj = hit.transform.gameObject;
+            if (hit2d) {
+                GameObject obj = hit2d.transform.gameObject;
 
                 if (obj.tag == Tags.ITEM) {
-                    if (proximityCheck.IsInProximity(obj.transform.position)) {
+                    Utils.Log("InputManager: Raycast hit item.");
+                    if (proximityCheck.IsInProximity(obj.transform.position, 1.5f)) {
+
                         Item item = obj.GetComponent<Item>();
 
                         if (!item.isInInventory) {
@@ -41,12 +43,15 @@ public class InputManager : MonoBehaviour {
                             )
                         );
                     }
+                } else {
+                    Utils.Log("InputManager: Raycast hit something else.");
                 }
                 // If we would need multiple levels, we would add a tag for the stairs
                 // Check if we clicked on stairs, save that to state and check once movement
                 // has finished
 
             } else {
+                Utils.Log("InputManager: Raycast hit nothing.");
                 // Hit nothing, try to move there
                 EventManager.TriggerEvent(Events.PLAYER_MOVE);
             }

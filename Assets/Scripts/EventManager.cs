@@ -7,6 +7,7 @@ public class Events {
     public const string COMBINE_ITEM = "COMBINE_ITEM";
     public const string PLAYER_MOVE = "PLAYER_MOVE";
     public const string ITEM_ACTION = "ITEM_PICK_UP";
+    public const string ON_CURSOR_ENTER = "ON_CURSOR_ENTER";
 }
 
 public class BaseEvent : UnityEvent<BaseMessage> {

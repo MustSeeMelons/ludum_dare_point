@@ -9,4 +9,5 @@ public class Definitions {
 
 public class Tags {
     public const string ITEM = "Item";
+    public const string PLAYER = "Player";
 }
