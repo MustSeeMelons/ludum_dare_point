@@ -25,8 +25,7 @@ public class InventoryManager : MonoBehaviour {
                 item.SetAsInInventory(true);
                 itemList.Add(item);
                 LeanTween.scale(item.gameObject, new Vector3(0, 0, 0), itemPickupScaleOutTime);
-                // TODO add to UI
-                // where do we define the icon for each item?
+                EventManager.TriggerEvent(Events.ITEM_UI_ADD, new ItemActionMessage(item));
                 break;
             case ItemType.ACTION:
                 // TODO trigger predefined action
