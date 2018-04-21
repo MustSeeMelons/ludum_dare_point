@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Utility;
 
 // On what the pointer is now?
@@ -21,6 +22,7 @@ public class ProximityCheck : MonoBehaviour {
     public Texture2D walkIcon;
     public Texture2D grabIcon;
     public Texture2D errorIcon;
+    public Texture2D uiIcon;
 
     private void Start() {
         player = GameObject.FindGameObjectWithTag(Definitions.PLAYER);
@@ -48,6 +50,8 @@ public class ProximityCheck : MonoBehaviour {
             } else if (tag == Tags.PLAYER) {
                 Cursor.SetCursor(errorIcon, new Vector2(25, 0), CursorMode.Auto);
             }
+        } else if (EventSystem.current.IsPointerOverGameObject()) {
+            Cursor.SetCursor(uiIcon, new Vector2(32, 0), CursorMode.Auto);
         } else {
             Cursor.SetCursor(walkIcon, new Vector2(32, 0), CursorMode.Auto);
         }
