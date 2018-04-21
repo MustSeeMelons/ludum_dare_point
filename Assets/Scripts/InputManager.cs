@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Utility;
+using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour {
 
@@ -18,6 +19,10 @@ public class InputManager : MonoBehaviour {
     }
 
     private void Update() {
+        if (EventSystem.current.IsPointerOverGameObject()) {
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0)) {
             Vector3 worldPoint = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit2d = Physics2D.Raycast(worldPoint, Vector2.up, .001f);
