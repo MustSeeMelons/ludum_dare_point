@@ -32,8 +32,9 @@ public class InventoryManager : MonoBehaviour {
                 itemList.Add(item);
                 LeanTween.scale(item.gameObject, new Vector3(0, 0, 0), itemPickupScaleOutTime);
                 EventManager.TriggerEvent(Events.ITEM_UI_ADD, new ItemActionMessage(item));
-
+                item.isClickable = false;
                 break;
+                
             case ItemType.ACTION:
                 Animator anim = item.GetComponent<Animator>();
 
@@ -41,9 +42,9 @@ public class InventoryManager : MonoBehaviour {
                     anim.SetBool(Definitions.IS_ANIMATING, true);
                     item.GetComponent<Collider2D>().enabled = false;
                 }
-
                 break;
             case ItemType.TRANSFORM:
+                item.isClickable = false;
                 if (item.hasTransformed) {
                     return;
                 }
