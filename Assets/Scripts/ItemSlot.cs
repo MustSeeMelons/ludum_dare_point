@@ -35,8 +35,8 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
                 Item hitItem = obj.GetComponent<Item>();
 
                 if (hitItem.actionItemId == item.itemId) {
-                    EventManager.TriggerEvent(Events.ITEM_UI_REMOVE, new ItemActionMessage(item));
                     EventManager.TriggerEvent(Events.ITEM_ACTION, new ItemActionMessage(hitItem));
+                    Destroy(this.gameObject);
                 } else {
                     Reset();
                 }

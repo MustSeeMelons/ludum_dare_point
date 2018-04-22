@@ -82,6 +82,7 @@ MonoBehaviour:
   itemType: 0
   isInInventory: 0
   hasTransformed: 0
+  isClickable: 1
   actionItemId: 
   transformPrefab: {fileID: 0}
   sprite: {fileID: 0}

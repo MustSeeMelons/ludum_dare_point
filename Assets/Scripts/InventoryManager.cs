@@ -32,6 +32,7 @@ public class InventoryManager : MonoBehaviour {
 
                 if (anim) {
                     anim.SetBool(Definitions.IS_ANIMATING, true);
+                    item.GetComponent<Collider2D>().enabled = false;
                 }
 
                 break;
