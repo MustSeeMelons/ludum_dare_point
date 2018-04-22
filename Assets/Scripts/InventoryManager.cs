@@ -17,6 +17,12 @@ public class InventoryManager : MonoBehaviour {
         EventManager.StopListening(Events.ITEM_ACTION, OnItemAction);
     }
 
+    Animator animator = null;
+
+    private void Awake() {
+        animator = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponent<Animator>();
+    }
+
     void OnItemAction(BaseMessage msg) {
         Item item = (msg as ItemActionMessage).item;
 
@@ -26,6 +32,7 @@ public class InventoryManager : MonoBehaviour {
                 itemList.Add(item);
                 LeanTween.scale(item.gameObject, new Vector3(0, 0, 0), itemPickupScaleOutTime);
                 EventManager.TriggerEvent(Events.ITEM_UI_ADD, new ItemActionMessage(item));
+               
                 break;
             case ItemType.ACTION:
                 Animator anim = item.GetComponent<Animator>();
@@ -58,5 +65,8 @@ public class InventoryManager : MonoBehaviour {
                 EventManager.TriggerEvent(Events.ITEM_UI_ADD, newMsg);
                 break;
         }
+        animator.SetBool("isPickup", true);
+        item.TickType();
+        item.TIckActivation();
     }
 }

@@ -10,6 +10,7 @@ public class Events {
     public const string ON_CURSOR_ENTER = "ON_CURSOR_ENTER";
     public const string ITEM_UI_ADD = "ITEM_UI_ADD";
     public const string ITEM_UI_REMOVE = "ITEM_UI_REMOVE";
+    public const string GAME_OVER = "GAME_OVER";
 }
 
 public class BaseEvent : UnityEvent<BaseMessage> {
