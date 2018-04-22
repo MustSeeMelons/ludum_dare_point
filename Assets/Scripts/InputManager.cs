@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Utility;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour {
 
@@ -60,6 +61,11 @@ public class InputManager : MonoBehaviour {
                 // Hit nothing, try to move there
                 EventManager.TriggerEvent(Events.PLAYER_MOVE);
             }
+        }
+
+        if (Input.GetKeyDown("escape"))
+        {
+            SceneManager.LoadScene("Main Scene");
         }
     }
 }

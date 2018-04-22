@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnPlayerMove(BaseMessage msg) {
+        anim.SetBool("isPickup", false);
         if (movementTween != null) {
             LeanTween.cancel(movementTween.id);
         }
