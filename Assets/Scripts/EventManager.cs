@@ -9,6 +9,7 @@ public class Events {
     public const string ITEM_ACTION = "ITEM_PICK_UP";
     public const string ON_CURSOR_ENTER = "ON_CURSOR_ENTER";
     public const string ITEM_UI_ADD = "ITEM_UI_ADD";
+    public const string ITEM_UI_REMOVE = "ITEM_UI_REMOVE";
 }
 
 public class BaseEvent : UnityEvent<BaseMessage> {

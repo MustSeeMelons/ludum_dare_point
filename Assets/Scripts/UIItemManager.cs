@@ -13,10 +13,20 @@ public class UIItemManager : MonoBehaviour {
 
     private void OnEnable() {
         EventManager.StartListening(Events.ITEM_UI_ADD, OnItemUIAdd);
+        EventManager.StartListening(Events.ITEM_UI_REMOVE, OnItemRemove);
     }
 
     private void OnDisable() {
         EventManager.StopListening(Events.ITEM_UI_ADD, OnItemUIAdd);
+        EventManager.StopListening(Events.ITEM_UI_REMOVE, OnItemRemove);
+    }
+
+    public void OnItemRemove(BaseMessage msg) {
+        ItemActionMessage castMsg = msg as ItemActionMessage;
+
+        Item item = castMsg.item;
+
+        DestroyObject(item.gameObject);
     }
 
     public void OnItemUIAdd(BaseMessage msg) {
@@ -33,6 +43,7 @@ public class UIItemManager : MonoBehaviour {
         } else {
             SpriteRenderer rend = item.GetComponent<SpriteRenderer>();
             newObj.GetComponent<Image>().sprite = rend.sprite;
+            newObj.GetComponent<ItemSlot>().SetItem(item);
         }
 
         // Setting item

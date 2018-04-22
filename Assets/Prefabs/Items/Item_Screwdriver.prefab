@@ -52,8 +52,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b398c4eeb4aea4b4b81b2c8800ffaa79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemId: screw
   itemType: 0
   isInInventory: 0
+  hasTransformed: 0
+  actionItemId: 
+  transformPrefab: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!212 &212519567587989380
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -16,9 +16,12 @@ public enum ItemType {
 /// </summary>
 public class Item : MonoBehaviour {
     [Tooltip("Can we activate it, or pick it up?")]
+    public string itemId;
     public ItemType itemType;
     public bool isInInventory = false;
     public bool hasTransformed = false;
+    public bool isClickable = true;
+    public string actionItemId;
 
     public GameObject transformPrefab;
 

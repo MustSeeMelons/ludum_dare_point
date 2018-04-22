@@ -22,6 +22,31 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
     }
 
     public void OnEndDrag(PointerEventData eventData) {
+        Utils.Log("ItemSlot: OnEndDrag");
+        Vector3 worldPoint = Camera.main.ScreenToWorldPoint(eventData.position);
+        RaycastHit2D hit2d = Physics2D.Raycast(worldPoint, Vector2.left, .001f);
+
+        if (hit2d) {
+            GameObject obj = hit2d.transform.gameObject;
+
+            Utils.Log("ItemSlot: Hit " + obj.tag);
+
+            if (obj.tag == Tags.ITEM) {
+                Item hitItem = obj.GetComponent<Item>();
+
+                if (hitItem.actionItemId == item.itemId) {
+                    EventManager.TriggerEvent(Events.ITEM_UI_REMOVE, new ItemActionMessage(item));
+                    EventManager.TriggerEvent(Events.ITEM_ACTION, new ItemActionMessage(hitItem));
+                } else {
+                    Reset();
+                }
+            }
+        } else {
+            Reset();
+        }
+    }
+
+    public void Reset() {
         transform.position = startLocation;
     }
 }

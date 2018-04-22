@@ -28,7 +28,12 @@ public class InventoryManager : MonoBehaviour {
                 EventManager.TriggerEvent(Events.ITEM_UI_ADD, new ItemActionMessage(item));
                 break;
             case ItemType.ACTION:
-                // TODO trigger predefined action
+                Animator anim = item.GetComponent<Animator>();
+
+                if (anim) {
+                    anim.SetBool(Definitions.IS_ANIMATING, true);
+                }
+
                 break;
             case ItemType.TRANSFORM:
                 if (item.hasTransformed) {

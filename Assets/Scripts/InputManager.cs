@@ -36,7 +36,7 @@ public class InputManager : MonoBehaviour {
 
                         Item item = obj.GetComponent<Item>();
 
-                        if (!item.isInInventory) {
+                        if (!item.isInInventory && item.isClickable) {
                             EventManager.TriggerEvent(Events.ITEM_ACTION, new ItemActionMessage(item));
                         }
                     } else {
